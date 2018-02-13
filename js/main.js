@@ -2,12 +2,12 @@ $(document).ready(() => {
   console.log("ready");
 
   $('.set-btn').on('click', e=>{
-    changeColor();
+    changeColor($('.brush'));
   })
 
   $(document).on('keyup', e=>{
     if (e.keyCode === 13) {
-      changeColor();
+      changeColor($('.brush'));
     }
   })
 
@@ -18,13 +18,12 @@ $(document).ready(() => {
 
   $('body').on('click', e=>{
     if ($(e.target).hasClass('square')) {
-      $(e.target).addClass('bgc-green');
+      changeColor($(e.target));
     }
   })
 });
 
-const changeColor = () => {
+const changeColor = ($obj) => {
   const color = $('.color-input').val();
-  $('.brush').css('background-color', color);
-  $('.color-input').val('');
+  $obj.css('background-color', color);
 }
