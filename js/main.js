@@ -16,7 +16,7 @@ $(document).ready(() => {
     $('body').append($square);
   }
 
-  $('body').on('click', e=>{
+  $('body').on('mouseover', e=>{
     if ($(e.target).hasClass('square')) {
       changeColor($(e.target));
     }
