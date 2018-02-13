@@ -10,6 +10,11 @@ $(document).ready(() => {
       changeColor();
     }
   })
+
+  for (let i = 0; i < 100; i++) {
+    const $square = $('<div>').addClass('square');
+    $('body').append($square)
+  }
 });
 
 const changeColor = () => {
