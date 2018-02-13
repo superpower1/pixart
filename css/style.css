@@ -4,6 +4,12 @@
   background-color: azure;
 }
 
+.preview {
+  width: 100px;
+  height: 100px;
+  /* background-color: #ccc; */
+}
+
 .square {
   width: 20px;
   height: 20px;
@@ -11,4 +17,12 @@
   display: inline-block;
   padding: 10px;
   margin: 10px;
+}
+
+.paint-tool {
+  display: inline-block;
+}
+
+.stamp-tool {
+  display: inline-block;
 }

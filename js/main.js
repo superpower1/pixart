@@ -1,6 +1,8 @@
 $(document).ready(() => {
   console.log("ready");
 
+  let stampUrl = "";
+
   $('.set-btn').on('click', e=>{
     changeColor($('.brush'));
   })
@@ -20,6 +22,18 @@ $(document).ready(() => {
     if ($(e.target).hasClass('square')) {
       changeColor($(e.target));
     }
+  })
+
+  $('.stamp-btn').on('click', e=>{
+    const movieName = $('.movie-name').val();
+    const options = {
+      url: `http://www.omdbapi.com/?apikey=2f6435d9&t=${movieName}`,
+      method: 'get'
+    }
+    $.ajax(options).done(res=>{
+      stampUrl = res.Poster;
+      $('.preview').css("background-image","url("+ stampUrl +")")
+    });
   })
 });
 
