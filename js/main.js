@@ -2,9 +2,11 @@ $(document).ready(() => {
   console.log("ready");
 
   let stampUrl = "";
+  let useStamp = false;
 
   $('.set-btn').on('click', e=>{
     changeColor($('.brush'));
+    useStamp = false;
   })
 
   $(document).on('keyup', e=>{
@@ -20,7 +22,11 @@ $(document).ready(() => {
 
   $('body').on('mouseover', e=>{
     if ($(e.target).hasClass('square')) {
-      changeColor($(e.target));
+      if (useStamp) {
+        $(e.target).css("background-image","url("+ stampUrl +")")
+      } else {
+        changeColor($(e.target));
+      }
     }
   })
 
@@ -32,7 +38,8 @@ $(document).ready(() => {
     }
     $.ajax(options).done(res=>{
       stampUrl = res.Poster;
-      $('.preview').css("background-image","url("+ stampUrl +")")
+      $('.preview').css("background-image","url("+ stampUrl +")");
+      useStamp = true;
     });
   })
 });
