@@ -13,8 +13,14 @@ $(document).ready(() => {
 
   for (let i = 0; i < 100; i++) {
     const $square = $('<div>').addClass('square');
-    $('body').append($square)
+    $('body').append($square);
   }
+
+  $('body').on('click', e=>{
+    if ($(e.target).hasClass('square')) {
+      $(e.target).addClass('bgc-green');
+    }
+  })
 });
 
 const changeColor = () => {
